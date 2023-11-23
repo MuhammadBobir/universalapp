@@ -29,4 +29,12 @@ class HomeContoller extends GetxController {
       update();
     }
   }
+
+  List<String> cities = [
+    "Toshkent",
+    "Farg'ona",
+    "Andijon",
+    "Namangan",
+    "Buxoro"
+  ];
 }

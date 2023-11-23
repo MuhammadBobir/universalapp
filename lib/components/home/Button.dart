@@ -2,37 +2,62 @@ import 'package:universal_app/config/Import.dart';
 
 class HomeButton extends StatelessWidget {
   IconData icon;
-  String text;
+  String text, subtitle, image;
   Function onTap;
-  HomeButton({
-    super.key,
-    required this.icon,
-    required this.text,
-    required this.onTap,
-  });
+  List<Color> colors;
+  Color textColor;
+  HomeButton(
+      {super.key,
+      required this.icon,
+      required this.text,
+      required this.subtitle,
+      required this.image,
+      required this.onTap,
+      required this.colors,
+      required this.textColor});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        onTap();
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
-            borderRadius: BorderRadius.circular(10)),
-        child: Row(
-          children: [
-            Icon(icon, size: 30),
-            Text(
-              text,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+    return Column(
+      children: [
+        InkWell(
+          onTap: () {
+            onTap();
+          },
+          child: Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: colors),
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(24)),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(text,
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: textColor)),
+                      Text(
+                        subtitle,
+                        style: TextStyle(color: textColor),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 30),
+                Image.asset(image, width: 80)
+              ],
             ),
-            const Spacer(),
-            const Icon(Icons.arrow_right_sharp, size: 40)
-          ],
+          ),
         ),
-      ),
+        const SizedBox(
+          height: 16,
+        )
+      ],
     );
   }
 }
