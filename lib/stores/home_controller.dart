@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:universal_app/config/Import.dart';
-import 'package:universal_app/pages/PrayerTime.dart';
 
 class HomeContoller extends GetxController {
   //https://cbu.uz/ru/arkhiv-kursov-valyut/json/
   Dio http = Dio();
 
-  List currensies = []; // korobkacha ochib quydik
+  List<CurrensiesModel> currensies = []; // korobkacha ochib quydik
 
   bool loading = false;
 
@@ -22,7 +21,7 @@ class HomeContoller extends GetxController {
       update();
       // await Future.delayed(Duration(seconds: 5));
       var res = await http.get('https://cbu.uz/ru/arkhiv-kursov-valyut/json/');
-      currensies = res.data;
+      currensies = currensiesFromMap(res.data);
     } catch (err) {
       print(err);
     } finally {

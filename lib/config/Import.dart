@@ -6,3 +6,5 @@ export 'package:universal_app/pages/Currensies.dart';
 export 'package:universal_app/stores/home_controller.dart';
 export 'package:universal_app/config/images.dart';
 export 'package:universal_app/config/Colors.dart';
+export 'package:universal_app/models/currensies_model.dart';
+export 'package:universal_app/pages/PrayerTime.dart';
