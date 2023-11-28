@@ -1,9 +1,10 @@
 import 'package:universal_app/config/Import.dart';
 
 class AppColors {
-  static Color red = const Color.fromARGB(198, 151, 9, 9);
-  static Color blue = const Color.fromARGB(250, 9, 45, 187);
-  static Color yellow = const Color.fromARGB(224, 183, 180, 10);
-  static Color pink = const Color.fromARGB(221, 150, 7, 91);
-  static Color violet = const Color.fromARGB(255, 105, 7, 157);
+  static Color red = const Color.fromARGB(239, 155, 63, 63);
+  static Color blue = const Color.fromARGB(246, 65, 90, 187);
+  static Color yellow = const Color.fromARGB(223, 185, 183, 67);
+  static Color pink = const Color.fromARGB(221, 155, 62, 116);
+  static Color violet = const Color.fromARGB(255, 129, 67, 163);
+  static Color green = const Color.fromARGB(255, 62, 163, 118);
 }

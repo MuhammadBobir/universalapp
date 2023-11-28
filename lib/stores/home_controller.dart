@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:universal_app/config/Import.dart';
+import 'package:universal_app/pages/PrayerTime.dart';
 
 class HomeContoller extends GetxController {
   //https://cbu.uz/ru/arkhiv-kursov-valyut/json/
@@ -35,6 +36,33 @@ class HomeContoller extends GetxController {
     "Farg'ona",
     "Andijon",
     "Namangan",
-    "Buxoro"
+    "Guliston",
+    "Jizzax",
+    "Samarqand",
+    "Buxoro",
+    "Qarshi",
+    "Nukus",
+    "Navoiy",
+    "Xiva"
   ];
+
+  Map<String, dynamic> prayerTime =
+      {}; // Map bu obye'kt Ikkita xusiyat berilyapti String = kaliti va dynamic = qiymati
+  String selectCity = '';
+  fetchPrayerTimes() async {
+    try {
+      loading = true;
+      update();
+      var res = await http.get(
+          "https://islomapi.uz/api/present/day?region=$selectCity"); // await da ma'lumot kelib kutib turadi, agar kelmasa errorga berib yuboriladi.
+      prayerTime = res.data;
+      Get.to(
+          () => const PrayerTime()); // Shu page ga o'tish ya'ni Prayer timega
+    } catch (err) {
+      Get.snackbar("Xatolik", "Ma'lumot topilmadi");
+    } finally {
+      loading = false;
+      update();
+    }
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:universal_app/config/Import.dart';
+import 'package:universal_app/pages/Cities.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -43,13 +44,13 @@ class _HomeState extends State<HomePage> {
                   HomeButton(
                     icon: Icons.attach_money,
                     text: "Namoz vaqtlari",
-                    subtitle: "Namoz vaqtlarini bilsh",
-                    image: AppImages.money,
-                    colors: [AppColors.blue, AppColors.red],
+                    subtitle: "Besh vaqt Namoz vaqtlarini bilish uchun kiring",
+                    image: AppImages.masjid,
+                    colors: [AppColors.green, AppColors.blue],
                     textColor: Colors.white,
                     onTap: () {
                       contoller.fetchCurrensies();
-                      Get.to(const Currensies());
+                      Get.to(const Cities());
                     },
                   ),
                 ],
